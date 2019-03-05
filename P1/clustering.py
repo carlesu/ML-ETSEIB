@@ -74,7 +74,7 @@ sns.scatterplot(x='x', y='y', data=datacentersk, marker='*', color='black', s=40
 # hierarchicall algorithm using the same xarr for all data.
 hierarcicallcluster = AgglomerativeClustering(n_clusters=2).fit(xarr)
 predictionhier = pd.DataFrame(hierarcicallcluster.fit_predict(xarr), columns=['clusters'])
-datatothier = pd.concat([dataxarr, predictionhier], axis=1
+datatothier = pd.concat([dataxarr, predictionhier], axis=1)
 # Plotting.
 hierfig1 = plt.figure()
 hierfig1.suptitle('Scatterplot of our data labeled with our 2-clusters prediction using hierarcicall', fontsize=10)
@@ -120,7 +120,7 @@ plt.xticks(np.arange(nc), bicvalues['n_clusters'])
 plt.xlabel('Number of clusters')
 plt.ylabel('BIC value')
 # Display the values on top of each bar
-for i, bar in enumerate(barcollection1):I
+for i, bar in enumerate(barcollection1):
     ax1.text(bar.get_x() + bar.get_width()/4., 1.05*bar.get_height(), int(bar.get_height()))
     if i == (min(bic)[1]-1):
         # Set color green for the minimum BIC value.

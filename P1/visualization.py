@@ -1,7 +1,8 @@
 import pandas as pd
 import seaborn as sns
 import statsmodels.api as sm
-# from sklearn import manifold
+import matplotlib.pyplot as plt
+from sklearn.manifold import MDS
 
 
 # E1
@@ -51,5 +52,8 @@ sm.qqplot_2samples(data['SL'],data['PW'])
 sns.pairplot(data, hue='CLASS')
 
 #  T7 Apply multidimensional scaling (MDS) to project the d-dimensional data in 2-d data
-# mds = manifold.MDS(n_components=2, metric=Flase)
-# pos = mds.fit(data[['SL','SW','PL','PW']]).embedding_
+X = data.iloc[:,:4]
+embedding = MDS(n_components=2)
+x_transformes = embedding.fit_transform(X[:100])
+x_transformes.shape
+plt.scatter(x_transformes[:,0],x_transformes[:,1])

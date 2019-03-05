@@ -36,5 +36,5 @@ for i,b in enumerate(pca.explained_variance_ratio_):
 print('\nSingular Valures', pca.singular_values_)
 # Plot from eigenvalues needed, homework
 # T6
-# What?
+# Still work to do
 pca.transform(datatot)

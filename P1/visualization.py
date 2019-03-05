@@ -13,9 +13,12 @@ data = pd.read_csv('./files/iris.data', delimiter = ',', names = ['SL', 'SW', 'P
 # E2
 
 #  T1
-sns.catplot(x="CLASS", y="SW", data=data, kind = 'box') # Box-plot of SW
-sns.catplot(x="CLASS", y="SL", data=data, kind = 'bar') # Bar-plot of SL
-sns.catplot(x="PL", data=data, kind = 'count', hue = 'CLASS') # Histogram of PL
+# Box-plot of SW
+sns.catplot(x="CLASS", y="SW", data=data, kind = 'box')
+# Bar-plot of SL
+sns.catplot(x="CLASS", y="SL", data=data, kind = 'bar')
+# Histogram of PL
+sns.catplot(x="PL", data=data, kind = 'count', hue = 'CLASS')
 
 #  T2
 labels = ['SL', 'SW', 'PL', 'PW']
@@ -33,15 +36,19 @@ print('Covariance matrix')
 print(data.cov())
 
 #  T3 Scatter plot of 2 variables (SL & SW)
-sns.catplot(x="SL", y="SW", data=data, hue = 'CLASS') # Scatter-plot, SL vs SW
+# Scatter-plot, SL vs SW
+sns.catplot(x="SL", y="SW", data=data, hue = 'CLASS')
 
 #  T4 q-q plot of 2 variables (SL & SW), we need statsmodels
-sns.scatterplot(x=data['PW'].sort_values(), y=data['SL'].sort_values(), data=data) # Same sample sizes, sorted data, 'PW' vs 'SL', the result is a qqplot, with same sample size
-sm.qqplot_2samples(data['SL'],data['PW'])  # Result should be the same as before
+# Same sample sizes, sorted data, 'PW' vs 'SL', the result is a qqplot, with same sample size
+sns.scatterplot(x=data['PW'].sort_values(), y=data['SL'].sort_values(), data=data)
+# Result should be the same as above
+sm.qqplot_2samples(data['SL'],data['PW'])
 # sm.qqplot_2samples(data['SL'],data['PW'],line='45') # Line does not fit, and shouldn't be 45 Ask professor.
 
 #  T5, T6
-sns.pairplot(data, hue="CLASS") # Scatter plot matrix
+# Scatter plot matrix
+sns.pairplot(data, hue='CLASS')
 
 #  T7 Apply multidimensional scaling (MDS) to project the d-dimensional data in 2-d data
 # mds = manifold.MDS(n_components=2, metric=Flase)

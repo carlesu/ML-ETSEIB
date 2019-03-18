@@ -45,10 +45,8 @@ stack_all = imstack2vectors(stack, mask_all);
 % Use toolbox instruction d = bayesgauss(X, CA, MA, P):
 %   D = BAYESGAUSS(X, CA, MA, P) computes the Bayes decision
 %   functions of the n-dimensional patterns in the rows of X. 
-
 %   CA is an array of size n-by-n-by-W containing W covariance
 %   matrices of size n-by-n, where W is the number of classes.
-
 %   MA is an array of size n-by-W, whose columns are the corres-
 %   ponding mean vectors. A cov. matrix and a mean vector must be 
 %   specified for each class, even is some are equal.  X is of size 
@@ -56,7 +54,6 @@ stack_all = imstack2vectors(stack, mask_all);
 %   a 1-by-W array, containing the probabilities of occurrence of 
 %   each class.  If P is not included in the argument, the classes 
 %   are assumed to be equally likely.  
-
 %   D, is a column vector of length K. Its ith element is the class
 %   number assigned to the ith vector in X during classification.  
 
@@ -77,7 +74,7 @@ result_all = bayesgauss(stack_all, CA, MA);
 % image, for example Iblue.
 Ipredict = reshape(result_all, size(Iblue));
 
-% We build original image, in order to display it and compare it 
+% We build original image, in order to display it and compare it .
 Ioriginal = Ired;
 Ioriginal(:,:,2) = Igreen;
 Ioriginal(:,:,3) = Iblue;
@@ -94,7 +91,7 @@ ax2 = subplot(1,2,2); imagesc(Ipredict);
 n_clusters = 3;
 prediction_k = kmeans(double(stack_all), n_clusters);
 Ipredict2 = reshape(prediction_k, size(Iblue));
-% Plotting
+% Plotting.
 figure(2);
 ax1 = subplot(1,2,1); imagesc(Ioriginal);
 ax2 = subplot(1,2,2); imagesc(Ipredict2);
@@ -127,14 +124,14 @@ numComponentsAIC
 [minBIC,numComponentsBIC] = min(BIC);
 numComponentsBIC
 % Seems that best cluster size is 6. Too much detail, but let's test it.
-% k-means 6 clusters
+% k-means 6 clusters.
 n_clusters = numComponentsBIC;
 prediction_k = kmeans(double(stack_all), n_clusters);
 Ipredict4 = reshape(prediction_k, size(Iblue));
 figure(4);
 ax1 = subplot(1,2,1); imagesc(Ioriginal);
 ax2 = subplot(1,2,2); imagesc(Ipredict4);
-% GMM 6 clusters
+% GMM 6 clusters.
 GMModel = fitgmdist(double(stack_all), n_clusters);
 prediction_gmm = cluster(GMModel,double(stack_all));
 Ipredict5 = reshape(prediction_gmm, size(Iblue));

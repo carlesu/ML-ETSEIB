@@ -1,2 +1,2 @@
-# ML-ETSEIB
-Pattern-Recognition-and-Machine-Learning-ETSEIB
+# MachineLearning-ETSEIB
+Practical application of Machine Learning and pattern recognition techniques.
